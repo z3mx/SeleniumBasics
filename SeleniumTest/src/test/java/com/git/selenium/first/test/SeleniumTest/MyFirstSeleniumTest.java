@@ -42,30 +42,23 @@ public class MyFirstSeleniumTest {
 	  }
 	@Test
 	public void openFaceBookPage() {
-		String url = prefixUrl+"localhost/jphp";
+		String url = prefixUrl+"localhost/projectName";
 		
 		//open browser
 		driver.get(url);
 		
-		//load form login
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".login")));
+		//ajax request
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".formulario")));
 		
 		//
-		WebElement email = driver.findElement(By.id("username"));
+		WebElement email = driver.findElement(By.id("email"));
 		WebElement password = driver.findElement(By.id("password"));
-//		WebElement btnSubmit = driver.findElement(By.xpath("//input[@type='submit']"));
 		WebElement btnSubmit = driver.findElement(By.id("btnstart"));
 		
-		email.sendKeys("luis");
-		password.sendKeys("3141516");
+		email.sendKeys("ejemplo@dominio.com");
+		password.sendKeys("123456");
 		btnSubmit.click();
 		
-		//
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("contentMenu")));
-//		WebElement btnMnuUno = driver.findElement(By.cssSelector("dropbtn"));
-//		btnMnuUno.click();
-		WebElement MnuUsuario = driver.findElement(By.xpath("//*[contains(text(), 'usuarios')]"));
-		MnuUsuario.click();
 		System.out.println("Terminando Ejcucion de Test");
 	}
 }
